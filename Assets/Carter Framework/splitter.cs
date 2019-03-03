@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public enum mtc_Type : byte { player_state, dagger_throw, dagger_die, player_die, config_update, dash, fireball_throw, fireball_die, character_select, payload_event, torch_placed, trap_placed, trap_caught, reflect, hill_score, hill_move, team_select, WC_controller }
+public enum mtc_Type : byte { send_text, send_image, script_events }
 
 
 
@@ -69,7 +69,7 @@ public class splitter : MonoBehaviour {
     {
         mtc_data md = (mtc_data)obj_in;
         network_events[md.type].Invoke(md.t,md.body,md.id);
-        if(md.type == mtc_Type.dagger_die) print($"received message of type {md.type}");
+       // if(md.type == mtc_Type.dagger_die) print($"received message of type {md.type}");
 
     }
 
